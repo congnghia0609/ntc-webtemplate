@@ -32,7 +32,11 @@ public class NParam {
 		if (paramName.isEmpty()) {
 			throw new Exception("Parameter name is empty");
 		}
-		return req.getParameter(paramName);
+		String value = req.getParameter(paramName);
+		if (value == null){
+		    throw new Exception("Parameter null");
+		}
+		return value;
 	}
     
     public static Boolean parseBoolean(String strVal) {
